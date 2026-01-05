@@ -22,7 +22,7 @@ public class FindElementUsingBinarySearch {
 
     }
 
-    public  static  void binarySearch(int arr[], int key) {
+    public  static  void binarySearch(int[] arr, int key) {
         int low = 0;
         int high = arr.length - 1;
         while (low <= high) {
