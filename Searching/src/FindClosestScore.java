@@ -18,16 +18,24 @@ public class FindClosestScore {
         System.out.println(" output: " + score);
     }
 
-    public static Short closestScore(short[] scores, int targetScore) {
-        int diff = Integer.MAX_VALUE;
-        short score = -1;
-        for(int i = 0; i < scores.length; i++) {
-            if (Math.abs(scores[i] -  targetScore) < diff) {
-                diff = Math.abs(scores[i] - targetScore);
-                score = scores[i];
+    public static short closestScore(short[] scores, int targetScore) {
+        int minDiff = Integer.MAX_VALUE;
+        short closest = scores[0];
+
+        for (int i = 0; i < scores.length; i++) {
+            int diff = Math.abs(scores[i] - targetScore);
+
+            if (diff < minDiff) {
+                minDiff = diff;
+                closest = scores[i];
+            }
+            else if (diff == minDiff && scores[i] < closest) {
+                closest = scores[i];
             }
         }
-        return  score;
+
+        return closest;
     }
+
 
 }
